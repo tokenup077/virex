@@ -24,13 +24,13 @@ Your content here...
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `title` | string | ✅ | Post title |
-| `description` | string | ✅ | SEO description |
-| `publishedDate` | date | ✅ | Publication date |
-| `author` | string | ✅ | Author name |
-| `image` | string | ❌ | Cover image path |
-| `tags` | string[] | ❌ | Post tags (default: []) |
-| `draft` | boolean | ❌ | Hide from listings (default: false) |
+| `title` | string | Yes | Post title |
+| `description` | string | Yes | SEO description |
+| `publishedDate` | date | Yes | Publication date |
+| `author` | string | Yes | Author name |
+| `image` | string | No | Cover image path |
+| `tags` | string[] | No | Post tags (default: []) |
+| `draft` | boolean | No | Hide from listings (default: false) |
 
 ### Features
 
@@ -59,11 +59,11 @@ Your documentation content...
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `title` | string | ✅ | Page title |
-| `description` | string | ✅ | SEO description |
-| `section` | string | ✅ | Sidebar section name |
-| `order` | number | ❌ | Sort order within section (default: 0) |
-| `draft` | boolean | ❌ | Hide from sidebar (default: false) |
+| `title` | string | Yes | Page title |
+| `description` | string | Yes | SEO description |
+| `section` | string | Yes | Sidebar section name |
+| `order` | number | No | Sort order within section (default: 0) |
+| `draft` | boolean | No | Hide from sidebar (default: false) |
 
 The sidebar is auto-generated from `section` and `order` fields. Pages with the same `section` are grouped together.
 
@@ -94,11 +94,11 @@ draft: false
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `version` | string | ✅ | Version number |
-| `date` | date | ✅ | Release date |
-| `title` | string | ✅ | Release title |
-| `type` | enum | ✅ | `major`, `minor`, or `patch` |
-| `draft` | boolean | ❌ | Hide from listing (default: false) |
+| `version` | string | Yes | Version number |
+| `date` | date | Yes | Release date |
+| `title` | string | Yes | Release title |
+| `type` | enum | Yes | `major`, `minor`, or `patch` |
+| `draft` | boolean | No | Hide from listing (default: false) |
 
 ## Testimonials
 
@@ -121,14 +121,14 @@ draft: false
 
 | Field | Type | Required | Description |
 |-------|------|----------|-------------|
-| `quote` | string | ✅ | Testimonial text |
-| `author` | string | ✅ | Person's name |
-| `role` | string | ✅ | Job title |
-| `company` | string | ✅ | Company name |
-| `avatar` | string | ❌ | Avatar image path |
-| `featured` | boolean | ❌ | Mark as featured testimonial (default: false) |
-| `order` | number | ❌ | Sort order (default: 0) |
-| `draft` | boolean | ❌ | Hide from listings (default: false) |
+| `quote` | string | Yes | Testimonial text |
+| `author` | string | Yes | Person's name |
+| `role` | string | Yes | Job title |
+| `company` | string | Yes | Company name |
+| `avatar` | string | No | Avatar image path |
+| `featured` | boolean | No | Mark as featured testimonial (default: false) |
+| `order` | number | No | Sort order (default: 0) |
+| `draft` | boolean | No | Hide from listings (default: false) |
 
 ## Draft Content
 
@@ -192,7 +192,3 @@ The sidebar is auto-generated based on `section` and `order` fields:
 ### Testimonials Display
 
 Testimonials are sorted by `order` field (ascending). The `featured` field can be used for custom filtering in your pages if needed.
-
-## Next Steps
-
-- [Components](./05-components.md) - Learn how to create reusable components.

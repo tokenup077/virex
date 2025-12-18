@@ -1,7 +1,7 @@
 {
   "name": "virex-astro",
   "type": "module",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A production-ready SaaS Landing Page Theme for Astro",
   "keywords": ["astro", "theme", "saas", "landing-page", "tailwindcss"],
   "author": "Erland <hello@erland.me>",

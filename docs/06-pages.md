@@ -135,7 +135,3 @@ Pages controlled by feature flags remain accessible via direct URL but are hidde
 - Internal links
 
 To fully disable a section, you can delete the page files or add redirect rules.
-
-## Next Steps
-
-- [Deployment](./07-deployment.md) - Deploy your site to hosting services.

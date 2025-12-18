@@ -55,7 +55,7 @@ const activeFeatureNavItems = featureNavItems.filter(
         )}
       </a>
 
-      <!-- Desktop Navigation -->
+      <!-- Desktop Navigation - Center -->
       <div class="hidden md:flex items-center gap-6">
         <!-- Main navigation links -->
         {navigation.main.map((item) => (
@@ -76,8 +76,23 @@ const activeFeatureNavItems = featureNavItems.filter(
             {item.label}
           </a>
         ))}
+      </div>
 
+      <!-- Desktop Actions - Right -->
+      <div class="hidden md:flex items-center gap-4">
         <ThemeToggle />
+        <a
+          href="/login"
+          class="text-text-muted hover:text-text transition-colors text-sm font-medium rounded-md px-2 py-1 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus:outline-none"
+        >
+          Login
+        </a>
+        <a
+          href="/register"
+          class="px-4 py-2 rounded-md bg-primary text-white text-sm font-medium hover:bg-primary-dark transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+        >
+          Get Started
+        </a>
       </div>
 
       <!-- Mobile menu button -->
@@ -125,6 +140,21 @@ const activeFeatureNavItems = featureNavItems.filter(
           {item.label}
         </a>
       ))}
+      <!-- Auth links divider -->
+      <div class="border-t border-border my-2"></div>
+      <!-- Auth links -->
+      <a
+        href="/login"
+        class="block px-3 py-3 rounded-md text-text-muted hover:text-text hover:bg-background transition-colors text-base font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
+      >
+        Login
+      </a>
+      <a
+        href="/register"
+        class="block px-3 py-3 rounded-md bg-primary text-white hover:bg-primary-dark transition-colors text-base font-medium text-center focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
+      >
+        Get Started
+      </a>
     </div>
   </div>
 </div>

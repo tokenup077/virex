@@ -141,7 +141,3 @@ To use custom fonts:
      font-family: 'YourFont', system-ui, sans-serif;
    }
    ```
-
-## Next Steps
-
-- [Content Guide](./04-content-guide.md) - Add your content to the site.

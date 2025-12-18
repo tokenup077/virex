@@ -132,3 +132,61 @@ export function selected(fieldName: string): ValidatorFn {
     return trimmed.length === 0 ? `Please select a ${fieldName}` : null;
   };
 }
+
+/**
+ * Creates a password minimum length validator
+ *
+ * @description
+ * Validates that a password meets a minimum character length requirement.
+ * Returns an error message if the password is shorter than the minimum.
+ *
+ * @param minLength - The minimum number of characters required (default: 8)
+ * @returns A validator function
+ *
+ * @example
+ * ```typescript
+ * const validatePassword = password(8);
+ * validatePassword('short');     // Returns "Password must be at least 8 characters"
+ * validatePassword('longenough'); // Returns null
+ * ```
+ */
+export function password(minLength: number = 8): ValidatorFn {
+  return (value: string): string | null => {
+    const trimmed = (value ?? '').trim();
+    return trimmed.length < minLength
+      ? `Password must be at least ${minLength} characters`
+      : null;
+  };
+}
+
+/**
+ * Checkbox validator function type
+ *
+ * @description
+ * A function that takes a boolean value and returns either an error message
+ * string if validation fails, or null if validation passes.
+ */
+export type CheckboxValidatorFn = (checked: boolean) => string | null;
+
+/**
+ * Creates a checkbox required validator
+ *
+ * @description
+ * Validates that a checkbox is checked. Useful for terms of service
+ * or privacy policy agreement checkboxes.
+ *
+ * @param fieldName - The name of the field for the error message
+ * @returns A validator function
+ *
+ * @example
+ * ```typescript
+ * const validateTerms = checkbox('Terms of Service and Privacy Policy');
+ * validateTerms(false);  // Returns "You must agree to the Terms of Service and Privacy Policy"
+ * validateTerms(true);   // Returns null
+ * ```
+ */
+export function checkbox(fieldName: string): CheckboxValidatorFn {
+  return (checked: boolean): string | null => {
+    return checked ? null : `You must agree to the ${fieldName}`;
+  };
+}

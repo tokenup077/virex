@@ -52,7 +52,7 @@ To start fresh with your own content:
 2. Delete all files in `src/content/changelog/`
 3. Delete all files in `src/content/testimonials/`
 4. Keep or modify files in `src/content/docs/` for your own documentation
-5. Replace images in `public/images/` (blog, team, testimonials)
+5. Replace images in `public/images/` (blog, team, testimonials, logos)
 6. Update `public/logo.svg` and `public/favicon.svg` with your brand
 7. Replace `public/images/og-image.png` with your Open Graph image (1200x630px)
 
@@ -127,7 +127,3 @@ The theme includes inline script in `BaseLayout.astro` to prevent flash. If you'
 
 **Build fails with content collection errors**
 Check that your frontmatter matches the schema in `src/content/config.ts`. Required fields must be present and dates must be valid.
-
-## Next Steps
-
-- [Configuration](./02-configuration.md) - Config options and how to customize the theme.

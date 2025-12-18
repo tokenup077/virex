@@ -35,15 +35,15 @@ import { Icon } from 'astro-icon/components';
 
 | Icon | Name | Usage |
 |------|------|-------|
-| ⚡ | `lucide:zap` | Features, speed |
-| 🛡️ | `lucide:shield` | Security |
-| 🌐 | `lucide:globe` | Global, web |
-| 📊 | `lucide:bar-chart` | Analytics |
-| 👥 | `lucide:users` | Team, users |
-| ✉️ | `lucide:mail` | Email |
-| ✓ | `lucide:check` | Checkmarks |
-| ☀️ | `lucide:sun` | Light mode |
-| 🌙 | `lucide:moon` | Dark mode |
+| Zap| `lucide:zap` | Features, speed |
+| Shield | `lucide:shield` | Security |
+| Globe | `lucide:globe` | Global, web |
+| Chart | `lucide:bar-chart` | Analytics |
+| Users | `lucide:users` | Team, users |
+| Mail | `lucide:mail` | Email |
+| Check | `lucide:check` | Checkmarks |
+| Sun | `lucide:sun` | Light mode |
+| Moon | `lucide:moon` | Dark mode |
 
 ### Adding More Icon Sets
 
@@ -140,7 +140,6 @@ The form submits these fields:
 
 `src/components/layout/Footer.astro`
 
-- Newsletter signup form
 - Navigation links (respects feature flags)
 - Social media links
 - Copyright notice
@@ -188,6 +187,132 @@ Displays pricing plans with feature lists and CTA buttons.
   action={{ label: "Sign Up", href: "/pricing" }}
 />
 ```
+
+### LogoCloud
+
+`src/components/sections/LogoCloud.astro`
+
+Displays client/partner logos to build trust and credibility. Supports multiple display variants.
+
+```astro
+---
+import LogoCloud from '../components/sections/LogoCloud.astro';
+
+const logos = [
+  { name: "Acme Inc", src: "/images/logos/logoipsum-1.svg" },
+  { name: "Globex", src: "/images/logos/logoipsum-2.svg", href: "https://example.com" },
+  // ... more logos
+];
+---
+
+<!-- Default variant (static row) -->
+<LogoCloud
+  title="Trusted by innovative teams"
+  logos={logos}
+/>
+
+<!-- Marquee variant (animated scroll) -->
+<LogoCloud
+  logos={logos}
+  variant="marquee"
+  speed="slow"
+  pauseOnHover={true}
+/>
+
+<!-- Grid variant -->
+<LogoCloud
+  title="Our partners"
+  logos={logos}
+  variant="grid"
+  columns={4}
+/>
+```
+
+**Props:**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `title` | `string` | - | Optional section title |
+| `logos` | `Logo[]` | Required | Array of logo objects |
+| `variant` | `'default' \| 'marquee' \| 'grid'` | `'default'` | Display variant |
+| `columns` | `2 \| 3 \| 4 \| 5 \| 6` | `4` | Columns for grid variant |
+| `speed` | `'slow' \| 'normal' \| 'fast'` | `'normal'` | Marquee animation speed |
+| `pauseOnHover` | `boolean` | `true` | Pause marquee on hover |
+| `logoSize` | `'sm' \| 'md' \| 'lg'` | `'md'` | Logo size |
+| `grayscale` | `boolean` | `true` | Grayscale logos (colored on hover) |
+
+**Logo Object:**
+
+```typescript
+interface Logo {
+  name: string;    // Company name (used for alt text)
+  src: string;     // Path to logo image
+  href?: string;   // Optional link URL
+}
+```
+
+**Placeholder logos** are provided in `public/images/logos/`. Replace them with your actual client logos.
+
+### Newsletter
+
+`src/components/sections/Newsletter.astro`
+
+Standalone newsletter subscription component. Can be placed anywhere on the site.
+
+```astro
+---
+import Newsletter from '../components/sections/Newsletter.astro';
+---
+
+<!-- Default (uses config values) -->
+<Newsletter />
+
+<!-- Custom content -->
+<Newsletter
+  title="Join our community"
+  description="Get weekly tips and updates."
+  buttonText="Join Now"
+/>
+
+<!-- With custom action endpoint -->
+<Newsletter action="https://api.example.com/subscribe" />
+
+<!-- Compact variant -->
+<Newsletter variant="compact" />
+
+<!-- Card variant with primary background -->
+<Newsletter variant="card" background="primary" />
+```
+
+**Props:**
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `title` | `string` | Config value | Section title |
+| `description` | `string` | Config value | Section description |
+| `placeholder` | `string` | Config value | Input placeholder |
+| `buttonText` | `string` | Config value | Submit button text |
+| `successMessage` | `string` | Config value | Success message |
+| `errorMessage` | `string` | Config value | Error message |
+| `privacyNote` | `string` | Config value | Privacy note text |
+| `action` | `string` | `''` | Form action URL (empty for demo mode) |
+| `variant` | `'default' \| 'compact' \| 'card'` | `'default'` | Visual variant |
+| `background` | `'surface' \| 'transparent' \| 'primary'` | `'surface'` | Background style |
+
+**Integration Examples:**
+
+```astro
+<!-- Mailchimp -->
+<Newsletter action="https://YOUR_DOMAIN.us1.list-manage.com/subscribe/post?u=XXX&id=YYY" />
+
+<!-- ConvertKit -->
+<Newsletter action="https://app.convertkit.com/forms/FORM_ID/subscriptions" />
+
+<!-- Custom API -->
+<Newsletter action="/api/newsletter" />
+```
+
+By default, the Newsletter only appears on the homepage. Add it to any page by importing the component.
 
 ## Common Components
 
@@ -280,7 +405,3 @@ const validators = {
   subject: selected('Subject'),     // "Please select a Subject"
 };
 ```
-
-## Next Steps
-
-- [Pages](./06-pages.md) - Learn how to create pages in Astro.

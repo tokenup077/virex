@@ -226,7 +226,3 @@ The theme currently uses `en-US` locale. To change the language:
    ```typescript
    return new Intl.DateTimeFormat('id-ID', options).format(date);
    ```
-
-## Next Steps
-
-- [Customization](./03-customization.md) - Customize the site's appearance and behavior.
