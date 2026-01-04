@@ -24,6 +24,7 @@ const {
   author,
   tags,
 } = Astro.props;
+const gtmID = import.meta.env.PUBLIC_GTM_CONTAINER_ID;
 ---
 
 <!doctype html>
@@ -42,6 +43,13 @@ const {
       author={author}
       tags={tags}
     />
+    {gtmID && (
+      <script is:inline>{`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','${gtmID}');`}</script>
+    )}
     <!-- Theme and announcement initialization - runs before page render to prevent flash -->
     <script is:inline>
       (function () {
@@ -67,6 +75,10 @@ const {
     </script>
   </head>
   <body class="min-h-screen bg-background text-text antialiased">
+    {gtmID && (
+      <noscript><iframe src={`https://www.googletagmanager.com/ns.html?id=${gtmID}`}
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    )}
     <!-- Skip to main content link for accessibility -->
     <a
       href="#main-content"
@@ -75,5 +87,6 @@ const {
       Skip to main content
     </a>
     <slot />
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   </body>
 </html>

@@ -60,7 +60,8 @@ const {
   tags = [],
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, siteConfig.url);
+const canonicalPath = Astro.url.pathname === '/pricing' ? '/price' : Astro.url.pathname;
+const canonicalURL = new URL(canonicalPath, siteConfig.url);
 const fullTitle = `${title} | ${siteConfig.name}`;
 const imageUrl = image || siteConfig.ogImage;
 const ogImage = imageUrl ? new URL(imageUrl, siteConfig.url).href : undefined;

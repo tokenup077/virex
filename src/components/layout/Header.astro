@@ -28,6 +28,13 @@ const mainNavItems = headerNav.main.filter(
 // Separate CTA buttons by variant
 const ghostCTAs = headerNav.cta.filter((cta) => cta.variant === 'ghost');
 const primaryCTA = headerNav.cta.find((cta) => cta.variant === 'primary');
+
+function gtmForHref(href: string) {
+  if (href === '/contact') return 'reserve';
+  if (href === '/service' || href === '/price') return 'menu';
+  if (href === '/access') return 'access';
+  return undefined;
+}
 ---
 
 <header
@@ -53,6 +60,7 @@ const primaryCTA = headerNav.cta.find((cta) => cta.variant === 'primary');
           mainNavItems.map((item) => (
             <a
               href={item.href}
+              data-gtm={gtmForHref(item.href)}
               class="text-text-muted hover:text-text transition-colors text-sm font-medium rounded-md px-2 py-1 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus:outline-none"
             >
               {item.label}
@@ -68,6 +76,7 @@ const primaryCTA = headerNav.cta.find((cta) => cta.variant === 'primary');
           ghostCTAs.map((cta) => (
             <a
               href={cta.href}
+              data-gtm={gtmForHref(cta.href)}
               class="text-text-muted hover:text-text transition-colors text-sm font-medium rounded-md px-2 py-1 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background focus:outline-none"
             >
               {cta.label}
@@ -78,6 +87,7 @@ const primaryCTA = headerNav.cta.find((cta) => cta.variant === 'primary');
           primaryCTA && (
             <a
               href={primaryCTA.href}
+              data-gtm={gtmForHref(primaryCTA.href) ?? 'reserve'}
               class="px-4 py-2 rounded-md bg-primary text-white text-sm font-medium hover:bg-primary-dark transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background"
             >
               {primaryCTA.label}
@@ -136,6 +146,7 @@ const primaryCTA = headerNav.cta.find((cta) => cta.variant === 'primary');
         mainNavItems.map((item) => (
           <a
             href={item.href}
+            data-gtm={gtmForHref(item.href)}
             class="block px-3 py-3 rounded-md text-text-muted hover:text-text hover:bg-background transition-colors text-base font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-inset"
           >
             {item.label}

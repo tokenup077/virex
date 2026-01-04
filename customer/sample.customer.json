@@ -1,0 +1,31 @@
+{
+  "brand": {
+    "name": "〇〇リラクゼーションサロン",
+    "tagline": "心と体をゆったりと整える",
+    "area": "〇〇市",
+    "phone": "090-0000-0000",
+    "lineUrl": null,
+    "instagramUrl": null,
+    "address": "〇〇県〇〇市〇〇町1-2-3"
+  },
+  "service": {
+    "primaryOffer": "初回限定 10%OFF",
+    "features": [
+      { "icon": "lucide:star", "title": "プライベート空間", "description": "完全予約制で落ち着いた時間をご提供。" },
+      { "icon": "lucide:feather", "title": "丁寧なヒアリング", "description": "お一人おひとりに合わせた施術内容。" },
+      { "icon": "lucide:leaf", "title": "ナチュラル素材", "description": "肌にやさしいオイルを使用。" }
+    ],
+    "menu": [
+      { "name": "全身リラクゼーション", "duration": 60, "price": 6000 },
+      { "name": "ヘッドスパ", "duration": 30, "price": 3000 }
+    ]
+  },
+  "cta": {
+    "primaryText": "ご予約・お問い合わせはこちら",
+    "primaryUrl": "/contact"
+  },
+  "analytics": {
+    "gtm_container_id": null
+  }
+}
+

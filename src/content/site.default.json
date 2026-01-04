@@ -1,0 +1,30 @@
+{
+  "brand": {
+    "name": "サンプルサロン",
+    "tagline": "心と体を整える時間",
+    "area": "東京都",
+    "phone": "000-0000-0000",
+    "lineUrl": null,
+    "instagramUrl": null,
+    "address": "東京都〇〇区〇〇1-2-3"
+  },
+  "service": {
+    "primaryOffer": "初回限定キャンペーン実施中",
+    "features": [
+      { "icon": "lucide:heart", "title": "完全予約制", "description": "落ち着いたプライベート空間で施術を行います。" },
+      { "icon": "lucide:leaf", "title": "自然派オイル", "description": "肌にやさしいオイルを使用します。" },
+      { "icon": "lucide:clock", "title": "柔軟な営業時間", "description": "お仕事帰りでも立ち寄れる時間帯に対応。" }
+    ],
+    "menu": [
+      { "name": "全身リラクゼーション", "duration": 60, "price": 6000 }
+    ]
+  },
+  "cta": {
+    "primaryText": "ご予約・お問い合わせはこちら",
+    "primaryUrl": "/contact"
+  },
+  "analytics": {
+    "gtm_container_id": null
+  }
+}
+

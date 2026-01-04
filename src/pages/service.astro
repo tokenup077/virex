@@ -1,0 +1,33 @@
+---
+import MarketingLayout from '@/layouts/MarketingLayout.astro';
+import FeaturesSection from '@sections/marketing/FeaturesSection.astro';
+import CTA from '@sections/marketing/CTA.astro';
+import { getSiteData } from '../lib/site-data';
+
+const site = await getSiteData();
+const features = site.service.features.map((f) => ({
+  icon: f.icon,
+  title: f.title,
+  description: f.description,
+}));
+---
+
+<MarketingLayout
+  title={`サービス - ${site.brand.name}`}
+  description={`${site.brand.area || ''}の${site.brand.name}のサービスのご案内`}
+>
+  <FeaturesSection
+    title="サービスの特長"
+    subtitle={site.service.primaryOffer}
+    features={features}
+    background="muted"
+  />
+
+  <CTA
+    title={site.cta.primaryText}
+    description={site.brand.tagline || ''}
+    action={{ label: 'お問い合わせ', href: site.cta.primaryUrl }}
+    background="default"
+  />
+</MarketingLayout>
+

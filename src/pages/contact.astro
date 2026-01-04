@@ -1,15 +1,17 @@
 ---
 import MarketingLayout from '@/layouts/MarketingLayout.astro';
 import PageHeader from '@sections/content/PageHeader.astro';
-import ContactForm from '@forms/ContactForm.astro';
 import { Icon } from 'astro-icon/components';
 import { siteConfig, contact, contactMethods, contactFAQs } from '@/config';
+import { actions } from 'astro:actions';
+import { getSiteData } from '../lib/site-data';
 
 const office = contact.address;
+const site = await getSiteData();
 ---
 
 <MarketingLayout
-  title={`Contact - ${siteConfig.name}`}
+  title={`Contact - ${site.brand.name}`}
   description="Get in touch with the Virex team. We're here to help with questions about our platform, pricing, or enterprise solutions."
 >
   <PageHeader
@@ -24,7 +26,29 @@ const office = contact.address;
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
         <div>
           <h2 class="text-2xl font-bold text-text mb-8">Send us a message</h2>
-          <ContactForm />
+          <form method="POST" action={actions.contactSubmit} class="space-y-6">
+            <div>
+              <label for="name" class="block text-sm font-medium text-text mb-2">Name <span class="text-red-500">*</span></label>
+              <input id="name" name="name" type="text" required minlength="1" maxlength="100" class="w-full px-4 py-3 rounded-md border border-border bg-background text-text placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors" placeholder="Your name" />
+            </div>
+            <div>
+              <label for="email" class="block text-sm font-medium text-text mb-2">Email <span class="text-red-500">*</span></label>
+              <input id="email" name="email" type="email" required class="w-full px-4 py-3 rounded-md border border-border bg-background text-text placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-colors" placeholder="you@example.com" />
+            </div>
+            <div>
+              <label for="message" class="block text-sm font-medium text-text mb-2">Message <span class="text-red-500">*</span></label>
+              <textarea id="message" name="message" rows="6" required minlength="1" maxlength="2000" class="w-full px-4 py-3 rounded-md border border-border bg-background text-text placeholder-text-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none transition-colors" placeholder="How can we help?"></textarea>
+            </div>
+            <!-- Cloudflare Turnstile widget -->
+            <div class="cf-turnstile" data-sitekey={import.meta.env.PUBLIC_TURNSTILE_SITE_KEY} data-response-field-name="token"></div>
+            <button type="submit" class="w-full sm:w-auto px-6 py-3 rounded-md bg-primary text-white font-medium hover:bg-primary-dark transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2">
+              Send Message
+            </button>
+          </form>
+          <script is:inline>
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({ event: 'form_view' });
+          </script>
         </div>
 
         <div class="space-y-8">

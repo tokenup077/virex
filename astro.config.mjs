@@ -1,4 +1,5 @@
 import { defineConfig } from 'astro/config';
+import node from '@astrojs/node';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import icon from 'astro-icon';
@@ -27,6 +28,8 @@ function envCheckIntegration() {
 }
 
 export default defineConfig({
+  output: 'server',
+  adapter: node(),
   site: siteUrl,
   integrations: [
     mdx(),

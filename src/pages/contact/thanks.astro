@@ -1,0 +1,25 @@
+---
+import MarketingLayout from '@/layouts/MarketingLayout.astro';
+import { siteConfig } from '@/config';
+---
+
+<MarketingLayout
+  title={`Thanks - ${siteConfig.name}`}
+  description="Your message has been sent successfully. We'll get back to you soon."
+>
+  <section class="py-section bg-surface">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-3xl font-bold text-text">Thank you!</h1>
+      <p class="mt-3 text-text-muted">We received your inquiry and will respond shortly.</p>
+      <div class="mt-8 flex items-center justify-center gap-4">
+        <a href="/contact" data-gtm="reserve" class="px-6 py-3 rounded-md bg-primary text-white font-medium hover:bg-primary-dark transition-colors">お問い合わせへ戻る</a>
+        <a href="/" class="px-6 py-3 rounded-md bg-surface border border-border text-text font-medium hover:bg-background transition-colors">トップへ</a>
+      </div>
+    </div>
+  </section>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'form_submit' });
+  </script>
+</MarketingLayout>
+

@@ -19,18 +19,11 @@ export const navigation: Navigation = {
    */
   header: {
     main: [
-      { label: 'Features', href: '/features' },
-      { label: 'Pricing', href: '/pricing' },
-      { label: 'Demo', href: '/dashboard' },
-      { label: 'Customers', href: '/customers' },
-      { label: 'Enterprise', href: '/enterprise' },
-      { label: 'Docs', href: '/docs', feature: 'docs' },
-      { label: 'Blog', href: '/blog', feature: 'blog' },
+      { label: 'サービス', href: '/service' },
+      { label: '料金', href: '/price' },
+      { label: 'お問い合わせ', href: '/contact' },
     ],
-    cta: [
-      { label: 'Login', href: '/login', variant: 'ghost' },
-      { label: 'Get Started', href: '/register', variant: 'primary' },
-    ],
+    cta: [],
   },
 
   /**
@@ -39,33 +32,19 @@ export const navigation: Navigation = {
    */
   footer: {
     product: [
-      { label: 'Features', href: '/features' },
-      { label: 'Integrations', href: '/integrations' },
-      { label: 'Security', href: '/security' },
-      { label: 'Pricing', href: '/pricing' },
+      { label: 'サービス', href: '/service' },
+      { label: '料金', href: '/price' },
       { label: 'FAQ', href: '/faq' },
     ],
-    solutions: [
-      { label: 'Enterprise', href: '/enterprise' },
-      { label: 'Customers', href: '/customers' },
-      { label: 'Request Demo', href: '/demo' },
-      { label: 'Status', href: '/status' },
-    ],
-    resources: [
-      { label: 'Documentation', href: '/docs', feature: 'docs' },
-      { label: 'Blog', href: '/blog', feature: 'blog' },
-      { label: 'Changelog', href: '/changelog', feature: 'changelog' },
-      { label: 'Roadmap', href: '/roadmap', feature: 'roadmap' },
-    ],
+    solutions: [],
+    resources: [],
     company: [
-      { label: 'About', href: '/about' },
-      { label: 'Careers', href: '/careers' },
-      { label: 'Contact', href: '/contact' },
-      { label: 'Testimonials', href: '/testimonials', feature: 'testimonials' },
+      { label: '会社概要', href: '/about' },
+      { label: 'お問い合わせ', href: '/contact' },
     ],
     legal: [
-      { label: 'Privacy', href: '/privacy' },
-      { label: 'Terms', href: '/terms' },
+      { label: 'プライバシー', href: '/privacy' },
+      { label: '利用規約', href: '/terms' },
     ],
   },
 };
